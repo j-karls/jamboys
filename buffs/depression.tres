@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Buff" format=3 uid="uid://cl2iasr5adhf"]
+
+[ext_resource type="Script" uid="uid://c4ua4yf3nuryr" path="res://buffs.gd" id="1_wvb4y"]
+
+[resource]
+script = ExtResource("1_wvb4y")
+buff_name = "depression"
+speed_multiplier = 2.0
+metadata/_custom_type_script = "uid://c4ua4yf3nuryr"
