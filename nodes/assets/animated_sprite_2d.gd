@@ -8,8 +8,11 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
-		_animated_sprite.play("walk")
+		print("walk")
+		# _animated_sprite.play("walk")
 	elif Input.is_action_pressed("ui_left"):
-		_animated_sprite.play("walk")
+		print("walk")
+		# _animated_sprite.play("walk")
 	else:
-		_animated_sprite.stop()
+		print("stop")
+		# _animated_sprite.stop()
