@@ -1,3 +1,76 @@
 [gd_scene format=3 uid="uid://cpt714ji2dn1s"]
 
+[ext_resource type="Texture2D" uid="uid://bwy7or4x8yfvy" path="res://assets/davidzydd-halftone-pattern-2506017.jpg" id="1_1vhbe"]
+[ext_resource type="Texture2D" uid="uid://cs83r1bc58jkf" path="res://assets/lesiakower-clouds-8177208_1920.png" id="2_o7jbp"]
+[ext_resource type="Texture2D" uid="uid://bhutx438lul1b" path="res://assets/lesiakower-clouds-8177214_1920.png" id="3_8kaxv"]
+[ext_resource type="Script" uid="uid://ctx2k8irfbhud" path="res://nodes/camera_2d.gd" id="4_8kaxv"]
+[ext_resource type="Texture2D" uid="uid://chxp2eoivrg8w" path="res://assets/kuzu420-tree-9699300_1920.png" id="4_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://8rdjnjll802d" path="res://assets/kuzu420-fantasy-9695415_1920.png" id="5_qyqpk"]
+
 [node name="BaseNode" type="Node2D" unique_id=1964168779]
+
+[node name="EnvironmentRoot" type="Node2D" parent="." unique_id=539504093]
+
+[node name="Parallax2DBackground" type="Parallax2D" parent="EnvironmentRoot" unique_id=1528106249]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(5000, 0)
+repeat_times = 10
+
+[node name="Sprite2DSky" type="Sprite2D" parent="EnvironmentRoot/Parallax2DBackground" unique_id=453886399]
+texture = ExtResource("1_1vhbe")
+
+[node name="Parallax2DMiddleground" type="Parallax2D" parent="EnvironmentRoot" unique_id=1555162743]
+z_index = 1
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(7000, 0)
+repeat_times = 8
+
+[node name="Sprite2DCloud1" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=806908252]
+position = Vector2(2547, -1171)
+texture = ExtResource("2_o7jbp")
+
+[node name="Sprite2DCloud2" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=2045272982]
+position = Vector2(733, -511)
+texture = ExtResource("3_8kaxv")
+
+[node name="Sprite2DCloud3" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=1553077970]
+position = Vector2(-347, -713)
+texture = ExtResource("2_o7jbp")
+
+[node name="Sprite2DCloud4" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=706484294]
+position = Vector2(-1656, -1057)
+texture = ExtResource("3_8kaxv")
+
+[node name="Sprite2DCloud5" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=252451548]
+position = Vector2(-2780, -591)
+texture = ExtResource("2_o7jbp")
+
+[node name="Sprite2DCloud6" type="Sprite2D" parent="EnvironmentRoot/Parallax2DMiddleground" unique_id=1040679124]
+position = Vector2(3518, -586)
+texture = ExtResource("3_8kaxv")
+
+[node name="Parallax2DForeground" type="Parallax2D" parent="EnvironmentRoot" unique_id=1903185385]
+z_index = 2
+repeat_size = Vector2(5500, 0)
+repeat_times = 10
+
+[node name="Sprite2DTree1" type="Sprite2D" parent="EnvironmentRoot/Parallax2DForeground" unique_id=1084256340]
+position = Vector2(655, -20)
+texture = ExtResource("4_dfy5j")
+
+[node name="Sprite2DTree2" type="Sprite2D" parent="EnvironmentRoot/Parallax2DForeground" unique_id=997961564]
+position = Vector2(-870, 206)
+texture = ExtResource("5_qyqpk")
+
+[node name="Sprite2DTree3" type="Sprite2D" parent="EnvironmentRoot/Parallax2DForeground" unique_id=1840784773]
+position = Vector2(-2176, 127)
+texture = ExtResource("4_dfy5j")
+
+[node name="Sprite2DTree4" type="Sprite2D" parent="EnvironmentRoot/Parallax2DForeground" unique_id=668791394]
+position = Vector2(2180, 286)
+texture = ExtResource("5_qyqpk")
+
+[node name="Camera2D" type="Camera2D" parent="EnvironmentRoot" unique_id=1990318908]
+position = Vector2(4, 110)
+zoom = Vector2(0.4, 0.4)
+script = ExtResource("4_8kaxv")
