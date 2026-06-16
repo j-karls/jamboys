@@ -23,7 +23,6 @@ func apply_random_buffs(count: int) -> void:
 	pool.shuffle()
 	
 	for i in range(min(count, pool.size())):
-		print("APPEND")
 		active_buffs.append(pool.pop_back())
 		print(active_buffs)
 		

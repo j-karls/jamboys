@@ -12,9 +12,6 @@ func _ready() -> void:
 	
 # This function triggers automatically whenever the signal is emitted
 func _on_buffs_applied(active_buffs: Array[Buff]) -> void:
-	for i in range(100):
-		print("buff applied")
-	
 	var buff_names: Array[String] = []
 	for buff in active_buffs:
 		buff_names.append(buff.buff_name)
