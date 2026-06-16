@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_wi0ep")
 buff_name = "suicidal"
+damage_multiplier = 2.0
+character_effect = "bleed"
 metadata/_custom_type_script = "uid://c4ua4yf3nuryr"

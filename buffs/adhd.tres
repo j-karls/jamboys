@@ -5,4 +5,7 @@
 [resource]
 script = ExtResource("1_2wccy")
 buff_name = "adhd"
+speed_multiplier = 1.5
+jump_multiplier = 1.5
+damage_multiplier = 1.5
 metadata/_custom_type_script = "uid://c4ua4yf3nuryr"

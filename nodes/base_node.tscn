@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkqe864vtgvnj" path="res://assets/Untitled324_20260615183411.png" id="6_jwog2"]
 [ext_resource type="Script" uid="uid://cvbwmarmqqw8r" path="res://nodes/canvas_layer_ui_manager.gd" id="7_0t18j"]
 [ext_resource type="Script" uid="uid://wjiabfcsn10i" path="res://nodes/assets/character_body_2d.gd" id="7_pogw7"]
+[ext_resource type="Script" uid="uid://mdtrf5r2s3qd" path="res://nodes/world_environment.gd" id="7_uk61a"]
 [ext_resource type="Texture2D" uid="uid://lj4xk4phvuue" path="res://nodes/assets/Untitled323_20260615165743.png" id="8_8b1jn"]
 [ext_resource type="Texture2D" uid="uid://cl1e558isslff" path="res://nodes/assets/Untitled323_20260615172059.png" id="9_roe8m"]
 [ext_resource type="Texture2D" uid="uid://ckwiq40awqlse" path="res://nodes/assets/Untitled323_20260615173110.png" id="10_hcxf5"]
@@ -20,6 +21,10 @@
 [ext_resource type="Resource" uid="uid://bunxa55gxfgce" path="res://buffs/adhd.tres" id="17_ssqj7"]
 [ext_resource type="Resource" uid="uid://b203ns3m4no10" path="res://buffs/suicidal.tres" id="18_jwog2"]
 [ext_resource type="Resource" uid="uid://d0xebblrolmgt" path="res://buffs/closeted_gay.tres" id="19_uk61a"]
+
+[sub_resource type="Environment" id="Environment_jwog2"]
+background_mode = 3
+adjustment_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk61a"]
 size = Vector2(2044, 100)
@@ -55,6 +60,10 @@ size = Vector2(600, 1500)
 [node name="BaseNode" type="Node2D" unique_id=1964168779]
 
 [node name="EnvironmentRoot" type="Node2D" parent="." unique_id=539504093]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentRoot" unique_id=1806284991]
+environment = SubResource("Environment_jwog2")
+script = ExtResource("7_uk61a")
 
 [node name="Parallax2DBackground" type="Parallax2D" parent="EnvironmentRoot" unique_id=1528106249]
 scroll_scale = Vector2(0, 0)
@@ -138,7 +147,7 @@ shape = SubResource("RectangleShape2D_uk61a")
 
 [node name="CanvasLayerUIManager" type="CanvasLayer" parent="." unique_id=1940427158 node_paths=PackedStringArray("player_stats_manager")]
 script = ExtResource("7_0t18j")
-player_stats_manager = NodePath("../CharacterBody2D/StatsManager")
+player_stats_manager = NodePath("../Player/StatsManager")
 
 [node name="Label" type="Label" parent="CanvasLayerUIManager" unique_id=796847198]
 offset_right = 40.0
@@ -147,28 +156,29 @@ label_settings = SubResource("LabelSettings_pogw7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1348621404]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1348621404]
 z_index = 3
 scale = Vector2(0.5, 0.5)
 script = ExtResource("7_pogw7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1122691995]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1122691995]
 sprite_frames = SubResource("SpriteFrames_7rd1a")
 animation = &"walk"
 script = ExtResource("12_lbhh7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=271770616]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=271770616]
 position = Vector2(0, 215)
 shape = SubResource("RectangleShape2D_jwog2")
 
-[node name="StatsManager" type="Node" parent="CharacterBody2D" unique_id=60611858]
+[node name="StatsManager" type="Node" parent="Player" unique_id=60611858]
 script = ExtResource("13_8b1jn")
 all_game_buffs = Array[ExtResource("15_hcxf5")]([ExtResource("16_oxhua"), ExtResource("17_ssqj7"), ExtResource("18_jwog2"), ExtResource("19_uk61a")])
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1990318908]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1990318908]
 position = Vector2(4, 110)
 zoom = Vector2(0.4, 0.4)
 script = ExtResource("4_8kaxv")
 speed = 0.0
 
-[connection signal="buffs_applied" from="CharacterBody2D/StatsManager" to="CharacterBody2D" method="_on_stats_manager_buffs_applied"]
+[connection signal="buffs_applied" from="Player/StatsManager" to="Player" method="_on_stats_manager_buffs_applied"]
+[connection signal="buffs_applied" from="Player/StatsManager" to="EnvironmentRoot/WorldEnvironment" method="_on_stats_manager_buffs_applied"]

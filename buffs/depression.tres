@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_wvb4y")
 buff_name = "depression"
-speed_multiplier = 2.0
+speed_multiplier = 0.5
+world_effect = "desaturate"
 metadata/_custom_type_script = "uid://c4ua4yf3nuryr"
