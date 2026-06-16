@@ -181,4 +181,5 @@ script = ExtResource("4_8kaxv")
 speed = 0.0
 
 [connection signal="buffs_applied" from="Player/StatsManager" to="Player" method="_on_stats_manager_buffs_applied"]
+[connection signal="buffs_applied" from="Player/StatsManager" to="Player/AnimatedSprite2D" method="_on_stats_manager_buffs_applied"]
 [connection signal="buffs_applied" from="Player/StatsManager" to="EnvironmentRoot/WorldEnvironment" method="_on_stats_manager_buffs_applied"]
